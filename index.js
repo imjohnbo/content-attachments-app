@@ -11,6 +11,19 @@ module.exports = app => {
     return context.github.issues.createComment(issueComment)
   })
 
+  app.on('content_reference.created', async context => {
+    console.log('Content reference created!', context.payload)
+     // Call the "Create a content reference" REST endpoint
+    await context.github.request({
+      method: 'POST',
+      headers: { accept: 'application/vnd.github.corsair-preview+json' },
+      url: `/content_references/${context.payload.content_reference.id}/attachments`,
+      // Parameters
+      title: '[EXAMPLE] Example title',
+      body: 'Example body **with** some _Markdown_'
+    })
+  })
+
   // For more information on building apps:
   // https://probot.github.io/docs/
 

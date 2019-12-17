@@ -16,6 +16,7 @@ default_events:
 # - check_run
 # - check_suite
 # - commit_comment
+- content_reference
 # - create
 # - delete
 # - deployment
@@ -52,6 +53,7 @@ default_events:
 # the value (for example, write).
 # Valid values are `read`, `write`, and `none`
 default_permissions:
+  content_references: write
   # Repository creation, deletion, settings, teams, and collaborators.
   # https://developer.github.com/v3/apps/permissions/#permission-on-administration
   # administration: read
@@ -124,6 +126,9 @@ default_permissions:
   # https://developer.github.com/v3/apps/permissions/
   # organization_administration: read
 
+content_references:
+- type: domain
+  value: example.com
 
 # The name of the GitHub App. Defaults to the name specified in package.json
 # name: My Probot App

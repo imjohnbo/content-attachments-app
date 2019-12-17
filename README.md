@@ -1,6 +1,6 @@
 # content-attachments-app
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
+> Testing the GitHub Content Attachment API on http://example.com
 
 ## Setup
 

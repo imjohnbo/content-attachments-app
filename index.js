@@ -22,6 +22,15 @@ module.exports = app => {
       title: '[EXAMPLE] Example title',
       body: 'Example body **with** some _Markdown_'
     })
+
+    await context.github.request({
+      method: 'POST',
+      headers: { accept: 'application/vnd.github.corsair-preview+json' },
+      url: `/content_references/${context.payload.content_reference.id}/attachments`,
+      // Parameters
+      title: '[EXAMPLE] Example title 2',
+      body: 'Example body **with** some _Markdown_ 2'
+    })
   })
 
   // For more information on building apps:
